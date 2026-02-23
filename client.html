@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: verdana, tahoma, geneva, sans-serif;
+            font-size: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .submit-button {
+            align-self: center;
+            margin-top: 20px; /* Adds some space between input and button */
+        }
+
+        @media (max-width: 990px) {
+            body {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+
+        <div id="form" class="center">
+            <div class="form-row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <input type="submit" id = "button" value="Submit" class="submit-button" onclick="submit()" autocomplete="user">
+        </div>
+
+        <div id="game" class="hidden">
+            <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;"></canvas>
+        </div>
+
+        <script src="game.js"></script>
+
+        <script>
+
+            function submit() {
+                document.querySelector(".center").
+                    onclick = function () {
+                        content = document.getElementById("form");
+                        game = document.getElementById("game");
+                        name = document.getElementById("name").value;
+
+                        content.classList.remove("center"); 
+                        content.classList.add("hidden");
+
+                        game.classList.remove("hidden");
+                        game.classList.add("center");
+
+                        startGame(name);
+                    }
+            }
+
+
+        </script>
+
+    </div>
+
+</body>
+</html>
