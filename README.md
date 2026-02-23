@@ -13,9 +13,7 @@ That's it. That's the game.
 - **Left click** to move your paper
 - **Right click** to throw scissors at someone
 - Hit another player's paper with scissors and they die
-- Get hit by scissors and you die — you become a sad dead piece of paper and can't do anything :(
-
-- Was gonna add interactions with paper shredders but wayyy too much work
+- Get hit by scissors and you die - you become a sad dead piece of paper and can't do anything :(
 
 ## Tech Stack
 
@@ -37,8 +35,9 @@ Then open your browser to:
 http://127.0.0.1:8082
 ```
 
-To play with friends
-1. Have friends
-2. Change the `host` in `server.js` to your local network IP and send them the link
+## Instructions to play with friends
+&emsp;Step 1: &ensp;Have friends\
+&emsp;Step 2: &ensp;Change the `host` in `server.js` to your local network IP and send them the link
 
 * **Note:** This is untested as I do not fullfill the initial requirement for setup. This should work according to my Networks class though ¯\\_(ツ)_/¯
+* **Extra Note** Was going to add interactions with paper shredders but wayyy too much work
