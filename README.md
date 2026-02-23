@@ -16,7 +16,7 @@ That's literally it. That's the game.
 - Get hit by scissors and you die - you become a sad dead piece of paper and can't do anything :(
 
 ## How It Works (kind of)
-When you move or throw scissors, it tells the server, which tells everyone else. There's also some math happening to make sure all players see projectiles and movement in roughly the same place at roughly the same time (accounting for network delay). Surprisingly non-trivial for a dumb game about paper.
+When you move or throw scissors, it tells the server, which tells everyone else. There's also some math happening to make sure all players see projectiles and movement in roughly the same place at roughly the same time (accounting for network delay). Lots of JSON and JS at work here for both server communication and game logic. Surprisingly non-trivial for a dumb game about paper.
 
 ## Tech Stack
 
@@ -43,4 +43,6 @@ Step 1: &ensp;Have friends\
 Step 2: &ensp;Change the `host` in `server.js` to your local network IP and send them the link
 
 * **Note:** This is untested as I do not fullfill the initial requirement for setup. This should work according to my Networks class though ¯\\_(ツ)_/¯
-* **Extra Note** Was going to add interactions with paper shredders but wayyy too much work
+* **Extra Note:** Was going to add interactions with paper shredders but wayyy too much work
+* **Extra Extra Note:** I HATE TYPESCRIPT
+* **Extra Extra Note Note:** If you are a potential employer, disregard this note. I will do anything if you pay me. Seriously. I'll learn TypeScript.
