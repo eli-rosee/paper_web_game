@@ -39,8 +39,8 @@ http://127.0.0.1:8082
 ```
 
 ## Instructions to play with friends
-&emsp;Step 1: &ensp;Have friends\
-&emsp;Step 2: &ensp;Change the `host` in `server.js` to your local network IP and send them the link
+Step 1: &ensp;Have friends\
+Step 2: &ensp;Change the `host` in `server.js` to your local network IP and send them the link
 
 * **Note:** This is untested as I do not fullfill the initial requirement for setup. This should work according to my Networks class though ¯\\_(ツ)_/¯
 * **Extra Note** Was going to add interactions with paper shredders but wayyy too much work
