@@ -6,6 +6,7 @@ That's it. That's the game.
 
 ## Incredibly Low Res Gameplay Gif
 
+![Alt text](img/game.gif)
 
 ## Gameplay
 
