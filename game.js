@@ -92,15 +92,15 @@ class Sprite {
 			if(sprite_list[j].id !== userid)
 			{
 				let ob_bounds = sprite_list[j].get_bounds();
-				if(does_collide(scissor_bounds, ob_bounds) && !sprite_list[j].image.src.includes("dead_paper.png"))
+				if(does_collide(scissor_bounds, ob_bounds) && !sprite_list[j].image.src.includes("img/dead_paper.png"))
 				{
-					if(sprite_list[j].image.src.includes("paper.png"))
+					if(sprite_list[j].image.src.includes("img/paper.png"))
 					{
 						to_remove.push(sprite_list[j]);
 					}
 				}
 			}
-			else if(sprite_list[j].id === userid && this.image.src.includes("scissors.png") && this.owner !== userid && this.owner !== undefined)
+			else if(sprite_list[j].id === userid && this.image.src.includes("img/scissors.png") && this.owner !== userid && this.owner !== undefined)
 			{
 				let ob_bounds = sprite_list[j].get_bounds();
 				if(does_collide(scissor_bounds, ob_bounds))
@@ -112,7 +112,7 @@ class Sprite {
 						game.isDead = true;
 
 						// Swap avatar to dead image and disable interactions
-						game.model.avatar.image.src = "dead_paper.png";
+						game.model.avatar.image.src = "img/dead_paper.png";
 						game.model.avatar.update = Sprite.prototype.update_stop;
 						game.model.avatar.onleftclick = Sprite.prototype.onclick_ignore;
 						game.model.avatar.onrightclick = Sprite.prototype.onclick_ignore;
@@ -164,7 +164,7 @@ class Sprite {
     // Throw a scissors toward the spot clicked
     onclick_throw_scissors(worldX, worldY) {
 		let gen_id = String(Math.floor(Math.random() * 10000000));
-		let scissors = new Sprite(this.x, this.y, 25, 25, "scissors.png", gen_id);
+		let scissors = new Sprite(this.x, this.y, 25, 25, "img/scissors.png", gen_id);
 		scissors.owner = userid;
         scissors.speed = 300; // pixels-per-second
         scissors.update = Sprite.prototype.update_travel;
@@ -191,7 +191,7 @@ class Model {
 		this.sprites = [];
 
         // Make the avatar
-		this.avatar = new Sprite(middleX, middleY, 45, 60, "paper.png", userid);
+		this.avatar = new Sprite(middleX, middleY, 45, 60, "img/paper.png", userid);
 		this.avatar.name = name;
         this.avatar.update = Sprite.prototype.update_travel;
         this.avatar.onleftclick = Sprite.prototype.onclick_set_destination;
@@ -335,7 +335,7 @@ class Controller
 		for (let sprite of items) {
 			let gen_id = String(Math.floor(Math.random() * 10000000));
 			// console.log("Processing sprite: " + JSON.stringify(sprite));
-			let newSprite = new Sprite(sprite.x, sprite.y, 125, 75, MapItemTypes[sprite.type] + ".png", gen_id);
+			let newSprite = new Sprite(sprite.x, sprite.y, 125, 75, "img/" + MapItemTypes[sprite.type] + ".png", gen_id);
 			// console.log("NEW SPRITE: " + newSprite);
 			this.map_items.push(newSprite);
 			this.model.sprites.push(newSprite);
@@ -432,12 +432,12 @@ class Controller
 					this.paper[pap.id] = pap;
 					let paperSprite = this.model.sprites.find(s => s.id === pap.id);
 					if (paperSprite) {
-						paperSprite.image.src = "dead_paper.png";
+						paperSprite.image.src = "img/dead_paper.png";
 						paperSprite.update = Sprite.prototype.update_stop;
 						paperSprite.onleftclick = Sprite.prototype.onclick_ignore;
 						paperSprite.onrightclick = Sprite.prototype.onclick_ignore;
 					} else {
-						let deadSprite = new Sprite(pap.paperCoords.x, pap.paperCoords.y, 45, 60, "dead_paper.png", pap.id, pap.name);
+						let deadSprite = new Sprite(pap.paperCoords.x, pap.paperCoords.y, 45, 60, "img/dead_paper.png", pap.id, pap.name);
 						deadSprite.update = Sprite.prototype.update_stop;
 						deadSprite.onleftclick = Sprite.prototype.onclick_ignore;
 						deadSprite.onrightclick = Sprite.prototype.onclick_ignore;
@@ -450,7 +450,7 @@ class Controller
 					
 					if (pap.action === "Dead") {
 						this.paper[pap.id] = pap;
-						let deadSprite = new Sprite(pap.paperCoords.x, pap.paperCoords.y, 45, 60, "dead_paper.png", pap.id, pap.name);
+						let deadSprite = new Sprite(pap.paperCoords.x, pap.paperCoords.y, 45, 60, "img/dead_paper.png", pap.id, pap.name);
 						deadSprite.update = Sprite.prototype.update_stop;
 						deadSprite.onleftclick = Sprite.prototype.onclick_ignore;
 						deadSprite.onrightclick = Sprite.prototype.onclick_ignore;
@@ -464,7 +464,7 @@ class Controller
 					console.log("NEW PLAYER - Target X: " + newPaper.mouse.x);
 					console.log("NEW PLAYER - Target Y: " + newPaper.mouse.y);
 								
-					let newPaperSprite = new Sprite(newPaper.paperCoords.x, newPaper.paperCoords.y, 45, 60, "paper.png", newPaper.id, newPaper.name);
+					let newPaperSprite = new Sprite(newPaper.paperCoords.x, newPaper.paperCoords.y, 45, 60, "img/paper.png", newPaper.id, newPaper.name);
 					newPaperSprite.id = pap.id;
 					newPaperSprite.name = newPaper.name;
 			
@@ -505,7 +505,7 @@ class Controller
 
 					if (!paperSprite) 
 					{
-						paperSprite = new Sprite(newPaper.paperCoords.x, newPaper.paperCoords.y, 45, 60, "paper.png", pap.id, pap.name);
+						paperSprite = new Sprite(newPaper.paperCoords.x, newPaper.paperCoords.y, 45, 60, "img/paper.png", pap.id, pap.name);
 						paperSprite.update = Sprite.prototype.update_travel;
 						paperSprite.onleftclick = Sprite.prototype.onclick_set_destination;
 						paperSprite.onrightclick = Sprite.prototype.onclick_throw_scissors;
@@ -538,7 +538,7 @@ class Controller
 
 					console.log("New scissors Added: " + JSON.stringify(scissData));
 
-					let newScissorsSprite = new Sprite(scissData.scissorCoords.x, scissData.scissorCoords.y, 25, 25, "scissors.png", scissData.id);
+					let newScissorsSprite = new Sprite(scissData.scissorCoords.x, scissData.scissorCoords.y, 25, 25, "img/scissors.png", scissData.id);
 
 					newScissorsSprite.owner = scissData.userid || scissData.owner || null;
 					newScissorsSprite.speed = 300;
